@@ -2,6 +2,8 @@
 
 This is the repository for MIB Python club!
 
+I've moved everything to the [MIB page](https://github.com/UoMMIB/Python-Club), so check there for up to date stuff
+
 # We have:
 ### Tutorials:
 * **[Some basic python bits](https://github.com/jamesengleback/MIBPythonClub/blob/master/Tutorials/BasicBitsPython.ipynb)**  -Introduction to jupyter notebooks and some basic syntax. Use what we've learned to make a DNA translator.
