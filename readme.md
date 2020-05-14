@@ -2,11 +2,7 @@
 
 This is the repository for MIB Python club!
 
-<<<<<<< HEAD
-🚧🚧 Early construction 🚧🚧
-=======
-I've moved everything to the [MIB page](https://github.com/UoMMIB/Python-Club), so check there for up to date stuff
->>>>>>> 4158076d590368685033288d15e410a7c673ee72
+### 🚧🚧 Early construction 🚧🚧
 
 # We have:
 ### Tutorials:
