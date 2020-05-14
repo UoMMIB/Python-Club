@@ -13,6 +13,14 @@ I've dumped links to good learning resources for python in here.
 * [**A collection of python cheat sheets**](https://ehmatthes.github.io/pcc/cheatsheets/README.html)
 * [**Bash Cheat Sheet**](https://devhints.io/bash) an another [**cheat sheet**](https://github.com/LeCoupa/awesome-cheatsheets/blob/master/languages/bash.sh)
 
+### Books and EBooks
+* [**Python Data Science Handbook - Jake Vanderplas (free ebook)**](https://jakevdp.github.io/PythonDataScienceHandbook/index.html)
+
+### Youtube Channels:
+* [**Sentdex**](https://www.youtube.com/user/sentdex?app=desktop) creator of [**pythonprogramming.net**](https://pythonprogramming.net/), General tutorials, including machine learning.
+* [**Corey Schafer**](https://www.youtube.com/user/schafer5) - general python, bash and more
+* [**DeepLizard**](https://www.youtube.com/channel/UC4UJ26WkceqONNF5S26OiVw) - deep learning tutorials using [**keras**](https://www.youtube.com/playlist?list=PLZbbT5o_s2xrwRnXk_yCPtnqqo4_u2YGL) and [**pytorch**](https://www.youtube.com/playlist?list=PLZbbT5o_s2xrfNyHZsM6ufI0iZENK9xgG)
+
 ### Curated lists of Machine Learning papers
 * [**Deep Learning Biology**](https://github.com/hussius/deeplearning-biology)
 * [**AwesomeDeepBio**](https://github.com/gokceneraslan/awesome-deepbio)
