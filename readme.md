@@ -12,7 +12,7 @@ This is the repository for MIB Python club!
 * **Basic Machine leanring** - a series of notebooks to [acquire bioassay data](https://github.com/UoMMIB/Python-Club/blob/master/Tutorials/PL-Pro/PL-Pro-Part1-DataAcquisition.ipynb) ✅, use the cheminformatics package ```rdkit``` to explore the data 🚧, build and evaluate a simple machine learning model 🚧 build a better machine learning model 🚧 predict the efficacy of compounds in the [Broad DRUG REPURPOSING HUB](https://www.broadinstitute.org/drug-repurposing-hub) 🚧
 
 ### Resources
-I've dumped some useful resources into [**this file**](https://github.com/UoMMIB/Python-Club/blob/master/Resoruces/resources.md) for topics including, but not limited to:
+I've dumped some useful resources into [**this file**](https://github.com/UoMMIB/Python-Club/tree/master/Resoruces) for topics including, but not limited to:
 * Links to Tutorials
 * Videos
 * Cheat sheets
