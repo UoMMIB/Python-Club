@@ -22,4 +22,4 @@ I've dumped some useful resources into [**this file**](https://github.com/UoMMIB
 ### Polls
 At our **round table** meeting on Wednesday 20th May, we took some polls. Here are the results:
 ![](Polls/Poll-outcome-piecharts.png)
-Check [Polls](/Polls) for the csvs and the [notebook](Poll/Polls.ipynb) to see how the plots were generated.
+Check [**Polls**](https://github.com/UoMMIB/Python-Club/tree/master/Polls) for the csvs and the [notebook](https://github.com/UoMMIB/Python-Club/blob/master/Polls/Polls.ipynb) to see how the plots were generated.
