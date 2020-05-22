@@ -17,3 +17,9 @@ I've dumped some useful resources into [**this file**](https://github.com/UoMMIB
 * Videos
 * Cheat sheets
 * Curated lists of machine learning + biology papers
+
+
+### Polls
+At our **round table** meeting on Wednesday 20th May, we took some polls. Here are the results:
+![](Polls/Poll-outcome-piecharts.png)
+Check [Polls](/Polls) for the csvs and the [notebook](Poll/Polls.ipynb) to see how the plots were generated.
