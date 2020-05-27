@@ -9,7 +9,7 @@ This is the repository for MIB Python club!
 ### Meetings:
 * **Every Friday @ 12**
 * **Content includes:** Tutorials, presentations on software, paper presentations **and more!**
-* **Interested in presenting material?** get in touch @ [james.engleback@postgrad.anchester.ac.uk](james.engleback@postgrad.anchester.ac.uk)
+* **Interested in presenting material?** get in touch @ [james.engleback@postgrad.anchester.ac.uk](james.engleback@postgrad.manchester.ac.uk)
 ### Tutorials:
 * **[Some basic python bits](https://github.com/UoMMIB/Python-Club/blob/master/Tutorials/BasicBitsPython.ipynb)**  -Introduction to jupyter notebooks and some basic syntax. Use what we've learned to make a DNA translator.
 * **[Simple Data Handling](https://github.com/UoMMIB/Python-Club/blob/master/Tutorials/IntroToDataWranglingWithPandas.ipynb)** - Download live COVID-19 infection rate data and learn to handle ```csv``` files, and make simple plots.
