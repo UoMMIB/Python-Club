@@ -2,8 +2,6 @@
 
 This is the repository for MIB Python club!
 
-### 🚧🚧 Early construction 🚧🚧
-
 # We have:
 
 ### Meetings:
