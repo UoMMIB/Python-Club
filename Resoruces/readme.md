@@ -16,6 +16,7 @@ I've dumped links to good learning resources for python in here.
 ### Books and EBooks
 * [**Python Data Science Handbook - Jake Vanderplas (free ebook)**](https://jakevdp.github.io/PythonDataScienceHandbook/index.html)
 * [**Python notes for professionals (free ebook)**](https://books.goalkicker.com/PythonBook/)
+* [**Dive into Deep Learning**](http://d2l.ai/)
 ### Youtube Channels:
 * [**Sentdex**](https://www.youtube.com/user/sentdex?app=desktop) creator of [**pythonprogramming.net**](https://pythonprogramming.net/), General tutorials, including machine learning.
 * [**Corey Schafer**](https://www.youtube.com/user/schafer5) - general python, bash and more
