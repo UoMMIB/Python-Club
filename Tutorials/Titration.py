@@ -75,7 +75,7 @@ class SpecData:
 
     def plot_traces(self, data,title=None):
         concs = self.substrateConcs
-        fig, ax = plt.subplots(figsize=(10,5))
+        fig, ax = plt.subplots(figsize=(10,6))
         ax.set_prop_cycle('color',plt.cm.inferno(np.linspace(0,0.9,len(data))))
         for i in range(len(data)):
             y = data.iloc[i,:]
@@ -96,7 +96,7 @@ class SpecData:
         km, vmax, loss  = km.item(), vmax.item(), loss.item()
         x = np.linspace(concs.min(),concs.max(),100)
 
-        plt.figure(figsize=(5,5))
+        plt.figure(figsize=(7,7))
         plt.scatter(concs,self.DiffDiff)
 
         plt.plot(x, (vmax*x)/(km + x))
@@ -207,9 +207,9 @@ def main():
     path=args.i[0]
 
     Dataset = SpecData(path)
-    Dataset.plot_traces(Dataset.data)
-    Dataset.plot_traces(Dataset.Diff)
-    Dataset.PlotMichaelesMenten()
+    Dataset.plot_traces(Dataset.data, 'UV-Vis absorbance of Arachadonic Acid Titration into P450 BM3 WT')
+    Dataset.plot_traces(Dataset.Diff, 'Relative UV-vis shift of Arachadonic Acid Titration into P450 BM3 WT')
+    Dataset.PlotMichaelesMenten('Response of P450 BM3 WT to Arachadonic Acid Titration \n and Michaelis-Menten Curve Fit ')
 
 
 if __name__ == '__main__':
