@@ -9,8 +9,16 @@ This is the repository for MIB Python club!
 * **Content includes:** Tutorials, presentations on software, paper presentations **and more!**
 * **Interested in presenting material?** get in touch @ [james.engleback@postgrad.manchester.ac.uk](james.engleback@postgrad.manchester.ac.uk)
 
-### Tutorials
-[**Contents page**](https://github.com/UoMMIB/Python-Club/tree/master/Tutorials)
+## Tutorials
+- [**Basic bits**](https://github.com/UoMMIB/Python-Club/blob/master/Tutorials/BasicBitsPython.ipynb) - what's going on?
+- [**UV-Vis data analysis**](https://github.com/UoMMIB/Python-Club/blob/master/Tutorials/uv-vis-data.ipynb) - ```pandas```, ```matplotlib```
+- [**COVID-19 data**](https://github.com/UoMMIB/Python-Club/blob/master/Tutorials/IntroToDataWranglingWithPandas.ipynb) - ```pandas```, ```matplotlib```
+- [**Curve fitting**](https://github.com/UoMMIB/Python-Club/blob/master/Tutorials/Curve-Fitting.ipynb) - ```scipy``` michaelis-menten kinetics
+- [**Curve fitting - growth curve**](https://github.com/UoMMIB/Python-Club/blob/master/Tutorials/Growth-Curve/growthCurve.ipynb) - fitting the gomperz equation to bacterial growth and bootstrapping to estimate uncertainty - thank you [**Steve**](https://github.com/SOH9797) for this one 💪
+- [**Cheminformatics**](https://github.com/UoMMIB/Python-Club/blob/master/Tutorials/IntroToCheminformatics.ipynb) - some basic ```rdkit```
+- [```Biopython```](https://github.com/UoMMIB/Python-Club/blob/master/Tutorials/Biopython-Cheat-Sheet.ipynb) cheat sheet
+- [**List comprehensions**](https://github.com/UoMMIB/Python-Club/blob/master/Tutorials/ListComprehensions.ipynb) - ```for``` loops in one line
+
 
 ### Resources
 I've dumped some useful resources into [**this file**](https://github.com/UoMMIB/Python-Club/tree/master/Resoruces) for topics including, but not limited to:
