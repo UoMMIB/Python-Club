@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 def clean_data_ans(path):
     df = pd.read_csv(path) # dataframe object from csv
@@ -20,4 +21,18 @@ def clean_data_ans(path):
 
 
     return df
- 
+
+def plot_traces(df):
+    plt.figure(figsize=(15,7)) # manually make canvas
+    for col in df: # loop through columns
+        plt.plot(df[col], # plot columns
+                 label=col) # set trace label as col name - for legend
+
+    plt.legend(loc='right') # detects 'label' in plot
+    plt.xlabel('wavelength nm')
+    plt.ylabel('absorbance')
+    plt.ylim(-0.1,1)
+    plt.xlim(250,800)
+    plt.xticks(range(250,800,50)) # x axis ticks every 50 nm
+    plt.title('UV-Vis absorbance of P450 BM3 with additions of arachadionic acid')
+    plt.show()
