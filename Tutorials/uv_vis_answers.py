@@ -18,8 +18,8 @@ def clean_data_ans(path):
     df.columns = headers[::2][:-1]
     # round wavelenths
     df.index = [round(float(i)) for i in df.index]
-
-
+    # transpose
+    df = df.T # also works: df.transpose()
     return df
 
 def plot_traces(df):
