@@ -1,5 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import re
+
 
 def clean_data_ans(path):
     df = pd.read_csv(path) # dataframe object from csv
@@ -18,8 +20,6 @@ def clean_data_ans(path):
     df.columns = headers[::2][:-1]
     # round wavelenths
     df.index = [round(float(i)) for i in df.index]
-    # transpose
-    df = df.T # also works: df.transpose()
     return df
 
 def plot_traces(df):
@@ -36,3 +36,25 @@ def plot_traces(df):
     plt.xticks(range(250,800,50)) # x axis ticks every 50 nm
     plt.title('UV-Vis absorbance of P450 BM3 with additions of arachadionic acid')
     plt.show()
+
+def regex_substrate_vols_ans(cols):
+    # find only column headers with 'Arachadonic_acid'
+    Arachadonic_acid_cols = [i for i in cols if 'acid' in i]
+    # from those, extract numbers (volume of arachadionic acid added in µl)
+    vols = [re.search('\d+\.\d',i).group() for i in Arachadonic_acid_cols]
+    # also works
+    # vols = [re.findall('\d+\.\d',i)[0] for i in Arachadonic_acid_cols]
+    # convert the strings of the numebrs to floats
+    vols = [float(i) for i in vols]
+    # return the vol
+    return vols
+
+def calc_concentrations_ans(v1,v2, c1):
+    return (c1*v1)/v2
+
+def calc_change_a420_a390_ans(x):
+    x = x.subtract(x.iloc[:,0], axis =0)
+    a420 = x.loc[420,:]
+    a390 = x.loc[390]
+    total_change = a420.abs() + a390.abs()
+    return total_change
