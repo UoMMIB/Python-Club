@@ -1,5 +1,5 @@
-from rdkit import Chem
-from rdkit.Chem import AllChem, Crippen, Draw
+#from rdkit import Chem
+#from rdkit.Chem import AllChem, Crippen, Draw
 import pandas as pd
 
 def featurize(aa):
