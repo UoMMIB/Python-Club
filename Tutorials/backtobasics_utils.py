@@ -1,3 +1,27 @@
+from rdkit import Chem
+from rdkit.Chem import AllChem, Crippen, Draw
+import pandas as pd
+
+def featurize(aa):
+    mol = Chem.MolFromFASTA(aa)
+    mol = Chem.AddHs(mol)
+    descriptors = {'MolWT':AllChem.CalcExactMolWt(mol),
+                  'LogP':Chem.Crippen.MolLogP(mol),
+                  'HBondDonors': AllChem.CalcNumLipinskiHBD(mol),
+                  'HBondAcceptors': AllChem.CalcNumLipinskiHBA(mol),
+                  'nAromaticRings':AllChem.CalcNumAromaticRings(mol),
+                  'nHeteroAtoms':AllChem.CalcNumHeteroatoms(mol),
+                  'nRotatableBonds':AllChem.CalcNumRotatableBonds(mol)}
+
+
+def draw_aas_grid():
+    aas = ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'P',
+           'Q', 'R', 'S', 'T', 'V', 'W', 'Y']
+    f = Draw.MolsToGridImage([Chem.MolFromFASTA(i) for i in aas], legends=aas, molsPerRow=5)
+    f.toqimage().save('amino-acids.png')
+
+def draw_glycine():
+    Draw.MolToImageFile(Chem.MolFromFASTA('G'), 'glycine.png')
 
 def extract_data_with_for_loops(data):
     # data: string of a table
@@ -43,16 +67,3 @@ def extract_data_with_list_comprehensions(data):
     values = [[float(val) for val in i[1:]] for i in table[1:]]
     dictionary = {j:dict(zip(header, i)) for i,j in zip(values, index)}
     return dictionary
-
-def clean_seq(seq):
-    seq = seq.replace('\n','')
-    seq = seq.replace('*','')
-    return seq
-
-def find_mw(sequence, dictionary):
-    weight = 0
-    for aa in sequence:
-        aa_info = dictionary[aa]
-        aa_weight = aa_info['MolWT']
-        weight += aa_weight
-    return weight
