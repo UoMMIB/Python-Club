@@ -1,3 +1,5 @@
+import requests
+
 
 def extract_data_with_for_loops(data):
     # data: string of a table
@@ -56,3 +58,24 @@ def find_mw(sequence, dictionary):
         aa_weight = aa_info['MolWT']
         weight += aa_weight
     return weight
+
+
+def get_1bu7():
+    try:
+        r = requests.get('https://files.rcsb.org/download/1BU7.pdb')
+    except:
+        print('Failed to get 1BU7.pdb')
+
+        with open('1BU7.pdb','w') as f:
+            f.write(r.content.decode("utf-8") )
+
+def get_atoms_from_pdb(pdb_text):
+    atoms = [i for i in pdb_text if 'ATOM ' in i][3:] # first few lines aren't what we want,
+    # be careful if applying this to other cases
+    atoms = [i.split() for i in atoms] # split on whitespace
+    return atoms
+
+def get_hetatms_from_pdb(pdb_text):
+    hetatms = [i for i in pdb_text if 'HETATM ' in i][1:]
+    hetatms = [i.split() for i in hetatms]
+    return hetatms
