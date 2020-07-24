@@ -66,8 +66,8 @@ def get_1bu7():
     except:
         print('Failed to get 1BU7.pdb')
 
-        with open('1BU7.pdb','w') as f:
-            f.write(r.content.decode("utf-8") )
+    with open('1BU7.pdb','w') as f:
+        f.write(r.content.decode("utf-8") )
 
 def get_atoms_from_pdb(pdb_text):
     atoms = [i for i in pdb_text if 'ATOM ' in i][3:] # first few lines aren't what we want,
