@@ -1,4 +1,5 @@
 import requests
+import numpy as np
 
 
 def extract_data_with_for_loops(data):
@@ -79,3 +80,17 @@ def get_hetatms_from_pdb(pdb_text):
     hetatms = [i for i in pdb_text if 'HETATM ' in i][1:]
     hetatms = [i.split() for i in hetatms]
     return hetatms
+
+
+def pairwise_euc_distance(coords):
+    l1 = []
+    for i in coords:
+        l2 = []
+        for j in coords:
+            d = np.linalg.norm(i-j)
+            l2.append(d)
+        l1.append(l2)
+    return np.array(l1)
+
+def pairwise_euc_distance_1line(coords):
+    return np.array([[np.linalg.norm(i-j) for i in coords] for j in coords])
