@@ -98,7 +98,7 @@ def pairwise_euc_distance_1line(coords):
 def get_atom_identities(df):
     elements = df.loc[df['Type'] == 'ATOM', 'Element symbol'].dropna() # 2 None values in there
     hem = df.loc[df['Type'] == 'HETATM','Element symbol'].dropna()
-    missing = df.loc[df['Element symbol'].isna(), '??']
+    missing = df.loc[df['Element symbol'].isna(), 'tempFactor']
     atom_ids = pd.concat([elements, missing, hem])
     atom_ids.index = df['ID'].astype(int)
     return atom_ids.sort_index()
