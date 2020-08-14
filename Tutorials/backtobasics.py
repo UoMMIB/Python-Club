@@ -1,6 +1,6 @@
 import requests
 import numpy as np
-
+import pandas as pd
 
 def extract_data_with_for_loops(data):
     # data: string of a table
@@ -94,3 +94,11 @@ def pairwise_euc_distance(coords):
 
 def pairwise_euc_distance_1line(coords):
     return np.array([[np.linalg.norm(i-j) for i in coords] for j in coords])
+
+def get_atom_identities(df):
+    elements = df.loc[df['Type'] == 'ATOM', 'Element symbol'].dropna() # 2 None values in there
+    hem = df.loc[df['Type'] == 'HETATM','Element symbol'].dropna()
+    missing = df.loc[df['Element symbol'].isna(), '??']
+    atom_ids = pd.concat([elements, missing, hem])
+    atom_ids.index = df['ID'].astype(int)
+    return atom_ids.sort_index()
