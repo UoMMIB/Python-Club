@@ -102,3 +102,28 @@ def get_atom_identities(df):
     atom_ids = pd.concat([elements, missing, hem])
     atom_ids.index = df['ID'].astype(int)
     return atom_ids.sort_index()
+
+
+def find_atom_neighbors(G, df):
+    for i, j  in zip(G, df['Atom Type']):
+        G.nodes[i]['atom_type'] = j
+
+    atom_types_n_neighbors = []
+    for i in G.nodes:
+        atom_type = G.nodes[i]['atom_type']
+        neighbors = G.neighbors(i) # returns iterator of node IDs
+        neighoring_elements = []
+        for j in neighbors:
+            neighoring_elements.append(G.nodes[j]['element'])
+        atom_types_n_neighbors.append({atom_type:neighoring_elements})
+
+    return atom_types_n_neighbors
+
+
+def find_unique_atom_neighborhoods(neighborhoods):
+    # takes atom_types_n_neighbors from find_atom_neighbors
+    uniques = []
+    for i in neighborhoods:
+        if i not in uniques:
+            uniques.append(i)
+    return uniques
