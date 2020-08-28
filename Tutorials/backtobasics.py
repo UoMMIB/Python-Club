@@ -127,3 +127,5 @@ def find_unique_atom_neighborhoods(neighborhoods):
         if i not in uniques:
             uniques.append(i)
     return uniques
+
+
