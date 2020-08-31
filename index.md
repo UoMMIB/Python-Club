@@ -1,10 +1,10 @@
-# Python Club @ the [MIB](https://en.wikipedia.org/wiki/Manchester_Institute_of_Biotechnology) 🐍
+# Python Club @ the [Manchester Institute of Biotechnology](https://en.wikipedia.org/wiki/Manchester_Institute_of_Biotechnology) 🐍
 
-## PythonFacts 🐍
-- Python club runs tutorials every Friday 12-1pm on zoom @ **929 5820 5206 / https://zoom.us/j/92958205206 ** hosted by [jamesengleback](https://github.com/jamesengleback)
-
-- Python club tutorials are orientated towards scientific data analysis & eperiment design
-- Python club tutorials are interactive 
+## What is python club 🐍
+- Python club runs tutorials every Friday 12-1pm on zoom @  **929 5820 5206 / https://zoom.us/j/92958205206** 🎥
+- hosted by [jamesengleback](https://github.com/jamesengleback) 
+- The tutorials are orientated towards scientific data analysis, experiment design, bio/cheminformatics & machine learning 📈 
+- tutorials are interactive! We work with Google Colab hosted python notebooks  
 - Python club is free for everyone
 - Python club isn't a cult 🤫
 
