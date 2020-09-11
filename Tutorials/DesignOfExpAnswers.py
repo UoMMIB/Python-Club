@@ -25,5 +25,9 @@ def quick_plot(data):
         plt.plot(data.loc[i,:], label=i)
     plt.xlabel('Time/mins')
     plt.ylabel('OD 600')
-    plt.legend()
+    if len(data) < 20:
+        plt.legend()
     plt.show()
+
+def gomperz_ans(wm,tm,k,t):
+    return wm * np.exp(-np.exp(-k * (t - tm)))
