@@ -11,7 +11,7 @@ def clean_data(path):
     df.index = df.loc[:,np.nan] # set well IDs as index
     # could also usse df.iloc[:,0]
     df = df.drop([np.nan, 'Time'], axis=1) # drop two columns
-
+    df = df.astype(float)
     return df
 
 def process_time_headers(headers):
