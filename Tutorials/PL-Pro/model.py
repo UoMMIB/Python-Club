@@ -3,17 +3,22 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset, random_split
 import pandas as pd
+import argparse
 
 class dataset(Dataset):
-    def __init__(self,path, sample_size = 50):
+    def __init__(self,path, sample_size = 50, test=True):
         super().__init__()
+        self.test = test
         self.x, self.y = self.process(path, sample_size) 
     def __len__(self):
         return self.x.shape[0] 
     def __getitem__(self,idx):
         return self.x[idx], self.y[idx]
     def process(self, path, sample_size):
-        df = pd.read_csv(path, index_col=0, nrows = 1000) # change this
+        if self.test:
+            df = pd.read_csv(path, index_col=0, nrows = 10000) 
+        else:
+            df = pd.read_csv(path, index_col=0)
         
         # diversity sampling
         mols = [Chem.MolFromSmiles(i) for i in df['smiles']]
@@ -39,8 +44,9 @@ class Net(nn.Module):
         x = torch.sigmoid(x)
         return x
 
-def main():
-    data = dataset('AID_1706.csv')
+
+def main(args):
+    data = dataset('AID_1706.csv', args.n_samples, args.test)
     trainsize = int(0.8 * len(data))
     testsize = len(data) - trainsize
     train_data, test_data = random_split(data, (trainsize, testsize))
@@ -49,20 +55,38 @@ def main():
 
     net = Net()
     loss_fn = nn.BCELoss()
-    opt = torch.optim.Adam(net.parameters(), lr=1e-4)
+    opt = torch.optim.Adam(net.parameters(), lr=float(args.lr))
 
     # train
-    epochs = 10
     loss_rcd = torch.tensor([])
-    for epoch in range(epochs):
+    for epoch in range(args.epochs):
         for xi, yi in train_loader:
             yh = net(xi)
-            loss = loss_fn(yh, yi)
+            loss = loss_fn(yh.reshape(-1), yi)
             loss.backward()
             opt.step()
             opt.zero_grad()
             loss_rcd = torch.cat([loss_rcd, loss.detach().reshape(1,-1)])
         print(loss_rcd[-1000:].mean())
 
+    # test
+    true_values = torch.tensor([])
+    pred_values = torch.tensor([])
+    test_losses = torch.tensor([])
+    net.eval()
+    for xi, yi in test_loader:
+        yh = net(xi)
+        true_values = torch.cat([true_values, yi])
+        pred_values = torch.cat([pred_values, (yh > 0.5).int()])
+        loss = loss_fn(yh.reshape(-1), yi)
+        test_losses = torch.cat([test_losses, loss])
+    print(f'accuracy = {round(sum(true_values == pred_values) / len(pred_values), 2)} %')
+
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-t', '--test', action='store_true', default=False)
+    parser.add_argument('-n', '--n_samples', default = 1000)
+    parser.add_argument('-e', '--epochs', default = 10)
+    parser.add_argument('-l','--lr', default = 1e-4)
+    args = parser.parse_args()
+    main(args)
