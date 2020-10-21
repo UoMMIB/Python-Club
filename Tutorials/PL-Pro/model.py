@@ -4,6 +4,8 @@ import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset, random_split
 import pandas as pd
 import argparse
+from tqdm import tqdm
+
 
 class dataset(Dataset):
     def __init__(self,path, sample_size = 50, test=True):
@@ -55,19 +57,19 @@ def main(args):
 
     net = Net()
     loss_fn = nn.BCELoss()
-    opt = torch.optim.Adam(net.parameters(), lr=float(args.lr))
+    opt = torch.optim.Adam(net.parameters(), lr=args.lr)
 
     # train
     loss_rcd = torch.tensor([])
     for epoch in range(args.epochs):
-        for xi, yi in train_loader:
+        for xi, yi in tqdm(train_loader):
             yh = net(xi)
             loss = loss_fn(yh.reshape(-1), yi)
             loss.backward()
             opt.step()
             opt.zero_grad()
             loss_rcd = torch.cat([loss_rcd, loss.detach().reshape(1,-1)])
-        print(loss_rcd[-1000:].mean())
+        print(f'epoch: {epoch +1} \t loss = {loss_rcd[-trainsize:].mean().detach().item()}')
 
     # test
     true_values = torch.tensor([])
@@ -76,17 +78,23 @@ def main(args):
     net.eval()
     for xi, yi in test_loader:
         yh = net(xi)
-        true_values = torch.cat([true_values, yi])
-        pred_values = torch.cat([pred_values, (yh > 0.5).int()])
+        true_values = torch.cat([true_values.reshape(-1), yi])
+        pred_values = torch.cat([pred_values.reshape(-1), (yh > 0.5).reshape(-1).float()])
         loss = loss_fn(yh.reshape(-1), yi)
-        test_losses = torch.cat([test_losses, loss])
-    print(f'accuracy = {round(sum(true_values == pred_values) / len(pred_values), 2)} %')
+        test_losses = torch.cat([test_losses.reshape(-1), loss.reshape(-1)])
+    print(f'accuracy = {round(((true_values == pred_values).sum().float() / len(pred_values) * 100).item(), 2)} %')
+
+    # confusion matrix
+    confusion = pd.crosstab(pd.Series(true_values), pd.Series(pred_values),
+            rownames=['true'],
+            colnames=['pred'])
+    print(confusion)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-t', '--test', action='store_true', default=False)
-    parser.add_argument('-n', '--n_samples', default = 1000)
-    parser.add_argument('-e', '--epochs', default = 10)
-    parser.add_argument('-l','--lr', default = 1e-4)
+    parser.add_argument('-n', '--n_samples', default = 1000, type=int)
+    parser.add_argument('-e', '--epochs', default = 10, type=int)
+    parser.add_argument('-l','--lr', default = 1e-4, type=float)
     args = parser.parse_args()
     main(args)
