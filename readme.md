@@ -20,6 +20,36 @@ This is the repository for MIB Python club!
 - [**List comprehensions**](https://github.com/UoMMIB/Python-Club/blob/master/Tutorials/ListComprehensions.ipynb) - ```for``` loops in one line - really useful
 - [**the linux/mac command line**](https://github.com/jamesengleback/terminal-adventures) - 4 sessions on the unix command line, connecting to remote linux servers and hacking!
 
+```sh
+tutorials
+├── basics
+│   ├── BackToBasics.ipynb
+│   ├── BasicBitsPython.ipynb
+│   ├── Curve-Fitting.ipynb
+│   ├── ListComprehensions.ipynb
+│   └── plate-data-with-pandas.ipynb
+├── data
+├── design-of-experiments
+│   └── Design-of-Experiments.ipynb
+├── Growth-Curve
+│   └── growthCurve.ipynb
+├── intro-to
+│   ├── IntroToBiopython.ipynb
+│   ├── IntroToCheminformatics.ipynb
+│   └── IntroToDataWranglingWithPandas.ipynb
+├── PL-Pro
+│   ├── PL-Pro-Part1-DataAcquisition.ipynb
+│   └── PL-Pro-Part2-Featurization.ipynb
+├── tutorial-data
+│   ├── curve-fitting
+│   │   └── DataGenerator.ipynb
+│   └── titrations
+└── uv-vis
+    ├── CAMS-workshop-scipy
+    │   ├── __pycache__
+    │   └── scipy.ipynb
+    └── uv-vis-data.ipynb
+```
 
 ### Resources
 I've dumped some useful resources into [**this file**](https://github.com/UoMMIB/Python-Club/tree/master/Resoruces) for topics including, but not limited to:
