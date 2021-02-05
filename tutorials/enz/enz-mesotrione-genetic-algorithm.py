@@ -40,7 +40,7 @@ def score(protein, results):
 
 
 def evaluate(gene):
-    mutation_dictionary = dict(zip(TARGET_SITES, AAS))
+    mutation_dictionary = dict(zip(TARGET_SITES, gene))
     p = enz.protein('4KEY.pdb',
                     seq = BM3_DM, # my residue numbering system
                     cofactors = ['HEM']) # keep the heme
