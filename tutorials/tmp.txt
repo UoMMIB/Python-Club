@@ -1,8 +1,0 @@
-# Cheat Sheet for Bio-Related Tools
-
-### Including:
-* **Biopython**
-* **BioPandas**
-* **nglview**
-* **Py3DMol**
-* **PyDNA**
